@@ -17,6 +17,11 @@ class CreateControlManObra extends AbstractMigration
             'default' => null,
             'null' => false,
         ]);
+        $table->addColumn('Maquina_NUmero', 'string', [
+            'default' => null,
+            'limit' => 30,
+            'null' => false,
+        ]);
         $table->addColumn('producto', 'string', [
             'default' => null,
             'limit' => 30,
@@ -41,6 +46,12 @@ class CreateControlManObra extends AbstractMigration
             'default' => null,
             'limit' => 5,
             'null' => false,
+
+        ]);
+        $table->addColumn('Numero_orden', 'string', [
+            'default' => null,
+            'limit' => 30,
+            'null' => false,
         ]);
         $table->addColumn('ref', 'string', [
             'default' => null,
@@ -52,19 +63,29 @@ class CreateControlManObra extends AbstractMigration
             'limit' => 60,
             'null' => false,
         ]);
-        $table->addColumn('hora_inicio', 'string', [
+        $table->addColumn('hora_inicio_Limpieza', 'string', [
             'default' => null,
             'limit' => 60,
             'null' => false,
         ]);
-        $table->addColumn('hora_final', 'string', [
+        $table->addColumn('hora_final_Limpieza', 'string', [
+            'default' => null,
+            'limit' => 60,
+            'null' => false,
+        ]);
+        $table->addColumn('hora_inicio_Producto', 'string', [
+            'default' => null,
+            'limit' => 60,
+            'null' => false,
+        ]);
+        $table->addColumn('hora_final_Producto', 'string', [
             'default' => null,
             'limit' => 60,
             'null' => false,
         ]);
         $table->create();
 
-        $refTable = $this->table('control_man_obra');
+        $refTable = $this->table('control_De_Produccion');
         $refTable->addColumn('user_id', 'integer', array('signed' => 'disable'))
                  ->addForeignkey('user_id', 'users', 'id', array('delete' => 'CASCADE', 'update' => 'NO_ACTION'))
                  ->update();
