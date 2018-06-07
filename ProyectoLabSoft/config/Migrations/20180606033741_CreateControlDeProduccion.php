@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CreateControlManObra extends AbstractMigration
+class CreateControlDeProduccion extends AbstractMigration
 {
     /**
      * Change Method.
